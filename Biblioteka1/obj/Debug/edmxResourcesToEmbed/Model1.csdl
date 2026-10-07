@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BibliotekaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clanarine">
+    <Key>
+      <PropertyRef Name="ClanarinaID" />
+    </Key>
+    <Property Name="ClanarinaID" Type="Int32" Nullable="false" />
+    <Property Name="TipClanarine" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Cena" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Trajanje" Type="Int32" />
+    <NavigationProperty Name="UplataClanarine" Relationship="Self.FK__UplataCla__Clana__4222D4EF" FromRole="Clanarine" ToRole="UplataClanarine" />
+  </EntityType>
+  <EntityType Name="Clanovi">
+    <Key>
+      <PropertyRef Name="ClanID" />
+    </Key>
+    <Property Name="ClanID" Type="Int32" Nullable="false" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StatusClanarine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DatumUplate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="PozajmljivanjeKnjiga" Relationship="Self.FK__Pozajmlji__ClanI__3D5E1FD2" FromRole="Clanovi" ToRole="PozajmljivanjeKnjiga" />
+    <NavigationProperty Name="UplataClanarine" Relationship="Self.FK__UplataCla__ClanI__412EB0B6" FromRole="Clanovi" ToRole="UplataClanarine" />
+  </EntityType>
+  <EntityType Name="Knjige">
+    <Key>
+      <PropertyRef Name="KnjigaID" />
+    </Key>
+    <Property Name="KnjigaID" Type="Int32" Nullable="false" />
+    <Property Name="Naziv" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Autor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DatumIzdavanja" Type="DateTime" Precision="0" />
+    <Property Name="StatusDostupnosti" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VrstaKorica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PozajmljivanjeKnjiga" Relationship="Self.FK__Pozajmlji__Knjig__3E52440B" FromRole="Knjige" ToRole="PozajmljivanjeKnjiga" />
+  </EntityType>
+  <EntityType Name="PozajmljivanjeKnjiga">
+    <Key>
+      <PropertyRef Name="PozajmljivanjeID" />
+    </Key>
+    <Property Name="PozajmljivanjeID" Type="Int32" Nullable="false" />
+    <Property Name="ClanID" Type="Int32" />
+    <Property Name="KnjigaID" Type="Int32" />
+    <Property Name="DatumPozajmljivanja" Type="DateTime" Precision="0" />
+    <Property Name="DatumVracanja" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Clanovi" Relationship="Self.FK__Pozajmlji__ClanI__3D5E1FD2" FromRole="PozajmljivanjeKnjiga" ToRole="Clanovi" />
+    <NavigationProperty Name="Knjige" Relationship="Self.FK__Pozajmlji__Knjig__3E52440B" FromRole="PozajmljivanjeKnjiga" ToRole="Knjige" />
+  </EntityType>
+  <EntityType Name="UplataClanarine">
+    <Key>
+      <PropertyRef Name="UplataID" />
+    </Key>
+    <Property Name="UplataID" Type="Int32" Nullable="false" />
+    <Property Name="ClanID" Type="Int32" />
+    <Property Name="ClanarinaID" Type="Int32" />
+    <Property Name="DatumUplate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Clanarine" Relationship="Self.FK__UplataCla__Clana__4222D4EF" FromRole="UplataClanarine" ToRole="Clanarine" />
+    <NavigationProperty Name="Clanovi" Relationship="Self.FK__UplataCla__ClanI__412EB0B6" FromRole="UplataClanarine" ToRole="Clanovi" />
+  </EntityType>
+  <Association Name="FK__UplataCla__Clana__4222D4EF">
+    <End Role="Clanarine" Type="Self.Clanarine" Multiplicity="0..1" />
+    <End Role="UplataClanarine" Type="Self.UplataClanarine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clanarine">
+        <PropertyRef Name="ClanarinaID" />
+      </Principal>
+      <Dependent Role="UplataClanarine">
+        <PropertyRef Name="ClanarinaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pozajmlji__ClanI__3D5E1FD2">
+    <End Role="Clanovi" Type="Self.Clanovi" Multiplicity="0..1" />
+    <End Role="PozajmljivanjeKnjiga" Type="Self.PozajmljivanjeKnjiga" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clanovi">
+        <PropertyRef Name="ClanID" />
+      </Principal>
+      <Dependent Role="PozajmljivanjeKnjiga">
+        <PropertyRef Name="ClanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UplataCla__ClanI__412EB0B6">
+    <End Role="Clanovi" Type="Self.Clanovi" Multiplicity="0..1" />
+    <End Role="UplataClanarine" Type="Self.UplataClanarine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clanovi">
+        <PropertyRef Name="ClanID" />
+      </Principal>
+      <Dependent Role="UplataClanarine">
+        <PropertyRef Name="ClanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pozajmlji__Knjig__3E52440B">
+    <End Role="Knjige" Type="Self.Knjige" Multiplicity="0..1" />
+    <End Role="PozajmljivanjeKnjiga" Type="Self.PozajmljivanjeKnjiga" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Knjige">
+        <PropertyRef Name="KnjigaID" />
+      </Principal>
+      <Dependent Role="PozajmljivanjeKnjiga">
+        <PropertyRef Name="KnjigaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BibliotekaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clanarine" EntityType="Self.Clanarine" />
+    <EntitySet Name="Clanovi" EntityType="Self.Clanovi" />
+    <EntitySet Name="Knjige" EntityType="Self.Knjige" />
+    <EntitySet Name="PozajmljivanjeKnjiga" EntityType="Self.PozajmljivanjeKnjiga" />
+    <EntitySet Name="UplataClanarine" EntityType="Self.UplataClanarine" />
+    <AssociationSet Name="FK__UplataCla__Clana__4222D4EF" Association="Self.FK__UplataCla__Clana__4222D4EF">
+      <End Role="Clanarine" EntitySet="Clanarine" />
+      <End Role="UplataClanarine" EntitySet="UplataClanarine" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pozajmlji__ClanI__3D5E1FD2" Association="Self.FK__Pozajmlji__ClanI__3D5E1FD2">
+      <End Role="Clanovi" EntitySet="Clanovi" />
+      <End Role="PozajmljivanjeKnjiga" EntitySet="PozajmljivanjeKnjiga" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UplataCla__ClanI__412EB0B6" Association="Self.FK__UplataCla__ClanI__412EB0B6">
+      <End Role="Clanovi" EntitySet="Clanovi" />
+      <End Role="UplataClanarine" EntitySet="UplataClanarine" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pozajmlji__Knjig__3E52440B" Association="Self.FK__Pozajmlji__Knjig__3E52440B">
+      <End Role="Knjige" EntitySet="Knjige" />
+      <End Role="PozajmljivanjeKnjiga" EntitySet="PozajmljivanjeKnjiga" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,44 @@
+﻿<Window x:Class="LibrarySystem.UplatiClanarinuProzor2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Uplata članarine" Height="400" Width="300" Background="Orange">
+     <Grid Margin="20">
+          <Grid.RowDefinitions>
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+               <TextBlock Text="Ime:" VerticalAlignment="Center" Margin="0,0,10,0" FontWeight="Bold" />
+               <TextBox x:Name="ImeTextBox" Width="200" />
+          </StackPanel>
+          <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+               <TextBlock Text="Prezime:" VerticalAlignment="Center" Margin="0,0,10,0" FontWeight="Bold" />
+               <TextBox x:Name="PrezimeTextBox" Width="200" />
+          </StackPanel>
+
+          <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,10">
+               <TextBlock Text="Odaberi članarinu:" VerticalAlignment="Center" Margin="0,0,10,0" FontWeight="Bold" />
+               <ComboBox x:Name="ClanarinaComboBox" Width="200" SelectionChanged="ClanarinaComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Nedeljna" Tag="300" />
+                    <ComboBoxItem Content="Dve nedelje" Tag="500" />
+                    <ComboBoxItem Content="Mesečna" Tag="800" />
+                    <ComboBoxItem Content="Dva meseca" Tag="1500" />
+                    <ComboBoxItem Content="Pola godine" Tag="4000" />
+                    <ComboBoxItem Content="Godišnja" Tag="7000" />
+               </ComboBox>
+               <TextBlock x:Name="CenaTipaTextBlock" Margin="10,0" FontWeight="Bold" />
+          </StackPanel>
+
+          <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,5">
+               <TextBlock Text="Cena članarine:" VerticalAlignment="Center" FontWeight="Bold" />
+               <TextBlock Grid.Row="3" x:Name="CenaTextBlock" Margin="5,0" FontWeight="Bold" />
+          </StackPanel>
+          <StackPanel Grid.Row="5" Orientation="Horizontal">
+               <Button Content="Potvrdi" Width="246" Margin="0,10,10,160.2" Click="PotvrdiButton_Click" FontWeight="Bold" />
+          </StackPanel>
+     </Grid>
+</Window>

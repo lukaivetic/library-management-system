@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="49d3123ebce34b0783743774777ba606" Name="Diagram1">
+        <EntityTypeShape EntityType="BibliotekaModel.Clanarine" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotekaModel.Clanovi" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotekaModel.Knjige" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotekaModel.PozajmljivanjeKnjiga" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotekaModel.UplataClanarine" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BibliotekaModel.FK__UplataCla__Clana__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotekaModel.FK__Pozajmlji__ClanI__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotekaModel.FK__UplataCla__ClanI__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotekaModel.FK__Pozajmlji__Knjig__3E52440B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

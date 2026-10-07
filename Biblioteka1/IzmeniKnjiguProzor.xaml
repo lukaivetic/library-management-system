@@ -1,0 +1,30 @@
+﻿<Window x:Class="LibrarySystem.IzmeniKnjiguProzor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Izmeni knjigu" Height="300" Width="400" Background="Orange">
+     <Grid>
+          <Grid.RowDefinitions>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+
+          <TextBlock Grid.Row="0" Margin="5" Text="Naziv:" FontWeight="Bold"/>
+          <TextBox Grid.Row="0" Margin="60,5,5,3.4" Width="330" x:Name="NazivTextBox"/>
+
+          <TextBlock Grid.Row="1" Margin="5" Text="Autor:" FontWeight="Bold"/>
+          <TextBox Grid.Row="1" Margin="60,1.8,5,8" Width="330" x:Name="AutorTextBox"/>
+
+          <TextBlock Grid.Row="2" Margin="5" Text="Datum izdavanja:" FontWeight="Bold"/>
+          <DatePicker Grid.Row="2" Margin="110,1,5,8.6" Width="280" x:Name="DatumIzdavanjaDatePicker"/>
+
+          <TextBlock Grid.Row="3" Margin="5" Text="Vrsta korica:" FontWeight="Bold"/>
+          <TextBox Grid.Row="3" Margin="110,1,5,8.6" Width="280" x:Name="VrstaKoricaTextBox"/>
+
+          <Button Grid.Row="6" Margin="10" Width="200" Height="30" Content="Potvrdi izmene" FontWeight="Bold" Click="PotvrdiButton_Click"/>
+     </Grid>
+</Window>

@@ -1,0 +1,29 @@
+﻿<Window x:Class="LibrarySystem.PozajmljivanjeKnjige"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Unesi podatke" Height="300" Width="400" Background="Orange">
+     <Grid>
+          <Grid.RowDefinitions>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="Auto"/>
+               <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+
+          <TextBlock Grid.Row="0" Grid.Column="0" Margin="10" VerticalAlignment="Center" FontWeight="Bold">Naziv knjige:</TextBlock>
+          <TextBox Grid.Row="0" Grid.Column="1" Margin="10" VerticalAlignment="Center" x:Name="NazivKnjigeTextBox" Height="25"/>
+
+          <TextBlock Grid.Row="1" Grid.Column="0" Margin="10" VerticalAlignment="Center" FontWeight="Bold">Ime:</TextBlock>
+          <TextBox Grid.Row="1" Grid.Column="1" Margin="10" VerticalAlignment="Center" x:Name="ImeTextBox" Height="25"/>
+
+          <TextBlock Grid.Row="2" Grid.Column="0" Margin="10" VerticalAlignment="Center" FontWeight="Bold">Prezime:</TextBlock>
+          <TextBox Grid.Row="2" Grid.Column="1" Margin="10" VerticalAlignment="Center" x:Name="PrezimeTextBox" Height="25"/>
+
+          <Button Grid.Row="3" Margin="0,10.2,9.6,11" Height="30" Content="Pozajmi" Click="PozajmiButton_Click" HorizontalAlignment="Right" FontWeight="Bold" Grid.ColumnSpan="2" Width="374"/>
+     </Grid>
+</Window>

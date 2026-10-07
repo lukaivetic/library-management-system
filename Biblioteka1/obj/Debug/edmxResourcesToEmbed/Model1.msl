@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BibliotekaModelStoreContainer" CdmEntityContainer="BibliotekaEntities">
+    <EntitySetMapping Name="Clanarine">
+      <EntityTypeMapping TypeName="BibliotekaModel.Clanarine">
+        <MappingFragment StoreEntitySet="Clanarine">
+          <ScalarProperty Name="ClanarinaID" ColumnName="ClanarinaID" />
+          <ScalarProperty Name="TipClanarine" ColumnName="TipClanarine" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+          <ScalarProperty Name="Trajanje" ColumnName="Trajanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clanovi">
+      <EntityTypeMapping TypeName="BibliotekaModel.Clanovi">
+        <MappingFragment StoreEntitySet="Clanovi">
+          <ScalarProperty Name="ClanID" ColumnName="ClanID" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="StatusClanarine" ColumnName="StatusClanarine" />
+          <ScalarProperty Name="DatumUplate" ColumnName="DatumUplate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Knjige">
+      <EntityTypeMapping TypeName="BibliotekaModel.Knjige">
+        <MappingFragment StoreEntitySet="Knjige">
+          <ScalarProperty Name="KnjigaID" ColumnName="KnjigaID" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="DatumIzdavanja" ColumnName="DatumIzdavanja" />
+          <ScalarProperty Name="StatusDostupnosti" ColumnName="StatusDostupnosti" />
+          <ScalarProperty Name="VrstaKorica" ColumnName="VrstaKorica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PozajmljivanjeKnjiga">
+      <EntityTypeMapping TypeName="BibliotekaModel.PozajmljivanjeKnjiga">
+        <MappingFragment StoreEntitySet="PozajmljivanjeKnjiga">
+          <ScalarProperty Name="PozajmljivanjeID" ColumnName="PozajmljivanjeID" />
+          <ScalarProperty Name="ClanID" ColumnName="ClanID" />
+          <ScalarProperty Name="KnjigaID" ColumnName="KnjigaID" />
+          <ScalarProperty Name="DatumPozajmljivanja" ColumnName="DatumPozajmljivanja" />
+          <ScalarProperty Name="DatumVracanja" ColumnName="DatumVracanja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UplataClanarine">
+      <EntityTypeMapping TypeName="BibliotekaModel.UplataClanarine">
+        <MappingFragment StoreEntitySet="UplataClanarine">
+          <ScalarProperty Name="UplataID" ColumnName="UplataID" />
+          <ScalarProperty Name="ClanID" ColumnName="ClanID" />
+          <ScalarProperty Name="ClanarinaID" ColumnName="ClanarinaID" />
+          <ScalarProperty Name="DatumUplate" ColumnName="DatumUplate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

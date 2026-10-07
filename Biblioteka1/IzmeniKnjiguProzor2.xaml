@@ -1,0 +1,48 @@
+﻿<Window x:Class="LibrarySystem.IzmeniKnjiguProzor2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Izmeni Knjigu" Height="300" Width="400" Background="Orange">
+     <Grid Margin="10">
+          <Grid.RowDefinitions>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+
+          <TextBlock Text="Izmeni Knjigu" FontWeight="Bold" FontSize="18" Margin="0,0,0,10" Grid.Row="0" HorizontalAlignment="Center"/>
+
+          <StackPanel Grid.Row="1" Orientation="Horizontal">
+               <TextBlock Text="Naziv:" FontWeight="Bold" Margin="0,5,5,0"/>
+               <TextBox x:Name="NazivTextBox" Margin="5,5,0,0" Width="200"/>
+          </StackPanel>
+
+          <StackPanel Grid.Row="2" Orientation="Horizontal">
+               <TextBlock Text="Autor:" FontWeight="Bold" Margin="0,5,5,0"/>
+               <TextBox x:Name="AutorTextBox" Margin="5,5,0,0" Width="200"/>
+          </StackPanel>
+
+          <StackPanel Grid.Row="3" Orientation="Horizontal">
+               <TextBlock Text="Datum Izdavanja:" FontWeight="Bold" Margin="0,5,5,0"/>
+               <DatePicker x:Name="DatumIzdavanjaDatePicker" Margin="5,5,0,0" Width="200"/>
+          </StackPanel>
+
+          <StackPanel Grid.Row="4" Orientation="Horizontal">
+               <TextBlock Text="Vrsta Korica:" FontWeight="Bold" Margin="0,5,5,0"/>
+               <TextBox x:Name="VrstaKoricaTextBox" Margin="5,5,0,0" Width="200"/>
+          </StackPanel>
+
+          <Button Content="Potvrdi" Click="SacuvajIzmene_Click" Margin="10,9.8,9.6,-36" Grid.Row="8" HorizontalAlignment="Center" Width="354">
+               <Button.Style>
+                    <Style TargetType="Button">
+                         <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+               </Button.Style>
+          </Button>
+     </Grid>
+</Window>

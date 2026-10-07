@@ -1,0 +1,23 @@
+﻿<Window x:Class="LibrarySystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Biblioteka" Height="478.571" Width="984.89">
+     <Grid Background="Orange">
+          <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          <TextBlock FontSize="24" FontWeight="Bold" Margin="10" HorizontalAlignment="Center">Dobrodošli u biblioteku!</TextBlock>
+          <Image x:Name="Slika" Source="logo.png" Margin="10,42,592.4,29.8" HorizontalAlignment="Center" Grid.RowSpan="2"/>
+          <StackPanel Grid.Row="1" Margin="10">
+               <Button Margin="5" Width="100" Height="30" Content="Pronadji knjigu" Click="PronadjiKnjigu_Click"/>
+               <Button Margin="5" Width="100" Height="30" Content="Pozajmi/Vrati" Click="PozajmiKnjigu_Click"/>
+               <Button Margin="5" Width="100" Height="30" Content="E-knjige" Click="EKnjige_Click"/>
+               <Button Margin="5" Width="100" Height="30" Content="Zaposleni" Click="Zaposleni_Click"/>
+               <Button Margin="5" Width="100" Height="30" Content="Članarine" Click="UplatiClanarinu_Click"/>
+          </StackPanel>
+     </Grid>
+</Window>

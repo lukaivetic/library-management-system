@@ -1,0 +1,65 @@
+﻿<Window x:Class="LibrarySystem.Bibliotekari"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Zaposleni Bibliotekari" Height="529.136" Width="1078.309" Background="Orange">
+     <Grid>
+          <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="139" Margin="450,204,182,156.2" Width="440">
+               <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="236*"/>
+                    <ColumnDefinition Width="83*"/>
+                    <ColumnDefinition Width="47*"/>
+                    <ColumnDefinition Width="42*"/>
+               </Grid.ColumnDefinitions>
+
+               <Grid Grid.Column="0" Margin="0,0,12,0">
+                    <Grid.RowDefinitions>
+                         <RowDefinition Height="Auto" />
+                         <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+               </Grid>
+
+               <Grid Grid.Column="1" Margin="11,10,8.2,10">
+                    <Grid.RowDefinitions>
+                         <RowDefinition Height="Auto" />
+                         <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="ImeTextBox" Margin="276,68.2,-415,-94.4" Grid.Row="1" />
+               </Grid>
+
+               <TextBox x:Name="PrezimeTextBox" Margin="30.406,111,0,0" Grid.Column="3" Grid.ColumnSpan="3" RenderTransformOrigin="0.589,5.428" />
+               <Label Content="Prezime:" FontWeight="Bold" Margin="192.8,111,57.4,0" Grid.Column="2" Grid.ColumnSpan="2" />
+          </Grid>
+
+          <Label Content="Zaposleni bibliotekari:" Margin="33,27,0,0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Height="69" Width="347" FontSize="30" />
+          <Button Content="Pretraži" HorizontalAlignment="Left" Margin="929,285,0,182.2" Width="132" Click="PretraziButton_Click" />
+          <Button Content="Dodaj" Margin="798,100,142,372.2" Click="DodajButton_Click"/>
+          <Button Content="Obriši" Margin="798,132,142,340.2" Click="ObrisiButton_Click"/>
+          <Button Content="Izmeni" Margin="798,164,142,308.2" Click="IzmeniButton_Click"/>
+          <ListView x:Name="BibliotekariListView" Background="White" Margin="14,100,448,10.2" Grid.Row="0">
+               <ListView.View>
+                    <GridView>
+                         <GridViewColumn Header="Ime" Width="100"  DisplayMemberBinding="{Binding Ime}" />
+                         <GridViewColumn Header="Prezime" Width="100"  DisplayMemberBinding="{Binding Prezime}" />
+                         <GridViewColumn Header="Email" Width="150"  DisplayMemberBinding="{Binding Email}" />
+                         <GridViewColumn Header="Telefon" Width="100" DisplayMemberBinding="{Binding Telefon}" />
+                         <GridViewColumn Header="Mesto" Width="150"  DisplayMemberBinding="{Binding Adresa}"/>
+                    </GridView>
+               </ListView.View>
+          </ListView>
+          <StackPanel Orientation="Vertical" Margin="919,452,0,-71.8">
+               <StackPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                         <Setter Property="Margin" Value="10" />
+                         <Setter Property="Width" Value="132" />
+                         <Setter Property="FontWeight" Value="Bold" />
+                         <Setter Property="Background" Value="#E0E0E0" />
+                         <Setter Property="BorderBrush" Value="#ADADAD" />
+                    </Style>
+               </StackPanel.Resources>
+          </StackPanel>
+          <Button Content="Izlaz" Click="Izlaz_Click" Margin="919,426,11,32.2" Width="Auto" />
+          <Label Content="Ime:" FontWeight="Bold" Margin="686,274,338,193.2" />
+     </Grid>
+</Window>

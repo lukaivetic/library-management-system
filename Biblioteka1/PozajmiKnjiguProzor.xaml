@@ -1,0 +1,64 @@
+﻿<Window x:Class="LibrarySystem.PozajmiKnjiguProzor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Pozajmi/Vrati knjigu" Height="478.571" Width="984.89" Background="Orange">
+     <Grid>
+          <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="*"/>
+               <ColumnDefinition Width="Auto"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="*"/>
+               <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <TextBlock FontSize="24" FontWeight="Bold" Margin="10" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left">Podaci o knjigama:</TextBlock>
+          <ListView Grid.Column="0" Grid.Row="1" Margin="10" x:Name="BookDetailsListView">
+               <ListView.View>
+                    <GridView>
+                         <GridViewColumn Header="Naziv" DisplayMemberBinding="{Binding Naziv}" Width="150"/>
+                         <GridViewColumn Header="Autor" DisplayMemberBinding="{Binding Autor}" Width="150"/>
+                         <GridViewColumn Header="Datum Izdavanja" Width="150">
+                              <GridViewColumn.DisplayMemberBinding>
+                                   <Binding Path="DatumIzdavanja" StringFormat="{}{0:dd.MM.yyyy}"/>
+                              </GridViewColumn.DisplayMemberBinding>
+                         </GridViewColumn>
+                         <GridViewColumn Header="Status Dostupnosti" DisplayMemberBinding="{Binding StatusDostupnosti}" Width="150"/>
+                         <GridViewColumn Header="Vrsta Korica" Width="150">
+                              <GridViewColumn.CellTemplate>
+                                   <DataTemplate>
+                                        <TextBlock Text="{Binding VrstaKorica}">
+                                             <TextBlock.Style>
+                                                  <Style TargetType="TextBlock">
+                                                       <Setter Property="Text" Value="{Binding VrstaKorica}"/>
+                                                       <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding VrstaKorica}" Value="{x:Null}">
+                                                                 <Setter Property="Text" Value=""/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding VrstaKorica}" Value="">
+                                                                 <Setter Property="Text" Value=""/>
+                                                            </DataTrigger>
+                                                       </Style.Triggers>
+                                                  </Style>
+                                             </TextBlock.Style>
+                                        </TextBlock>
+                                   </DataTemplate>
+                              </GridViewColumn.CellTemplate>
+                         </GridViewColumn>
+                    </GridView>
+               </ListView.View>
+          </ListView>
+          <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical">
+               <TextBox Margin="5" Width="150" Height="30" x:Name="BookNameTextBox"/>
+               <Button Margin="5" Width="100" Height="30" Content="Pretraži" Click="SearchButton_Click"/>
+               <Button Margin="5" Width="100" Height="30" Content="Pozajmi knjigu" Click="PozajmiKnjiguButton_Click"/>
+               <Button Margin="5" Width="100" Height="30" Content="Vrati knjigu" Click="VratiKnjiguButton_Click"/>
+               <Button Margin="5" Width="100" Height="30" Content="Izmeni" Click="IzmeniButton_Click"/>
+               <Button Margin="5" Width="100" Height="30" Content="Dodaj" Click="DodajButton_Click"/>
+               <Button Margin="5" Width="100" Height="30" Content="Obriši" Click="ObrisiButton_Click"/>
+          </StackPanel>
+          <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+               <Button Margin="5" Width="100" Height="30" Content="Izlaz" Click="RejectButton_Click"/>
+          </StackPanel>
+     </Grid>
+</Window>

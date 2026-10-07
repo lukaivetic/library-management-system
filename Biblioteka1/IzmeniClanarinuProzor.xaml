@@ -1,0 +1,27 @@
+﻿<Window x:Class="LibrarySystem.IzmeniClanarinuProzor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Izmena članarine" Height="300" Width="400" Background="Orange">
+     <Grid Margin="20">
+          <Grid.RowDefinitions>
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+               <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <TextBlock Grid.Row="0" Text="Izmena članarine" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10" />
+
+          <Label Grid.Row="1" Content="Ime:" FontWeight="Bold" />
+          <TextBox Grid.Row="1" x:Name="ImeTextBox" Margin="5" Width="200" />
+
+          <Label Grid.Row="2" Content="Prezime:" FontWeight="Bold" />
+          <TextBox Grid.Row="2" x:Name="PrezimeTextBox" Margin="5" Width="200" />
+
+          <Label Grid.Row="3" Content="Datum uplate:" FontWeight="Bold" Margin="-10,4.2,9.6,56.2" Grid.RowSpan="3" />
+          <DatePicker Grid.Row="3" x:Name="DatumUplateDatePicker" Margin="5" Width="200" />
+
+          <Button Grid.Row="5" Content="Potvrdi" Click="PotvrdiButton_Click" Width="100" HorizontalAlignment="Center" Margin="0,20" FontWeight="Bold" />
+     </Grid>
+</Window>
